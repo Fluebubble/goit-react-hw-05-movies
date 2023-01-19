@@ -2,7 +2,7 @@ import { getMovieCreditsById } from 'api/api';
 import { Box } from 'components/Box/Box';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Photo } from './Cast.styled';
 
 export const Cast = () => {

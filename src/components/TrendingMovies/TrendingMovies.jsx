@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import * as API from 'api/api';
 import { useEffect, useState } from 'react';
 import { StyledLink } from './TrendingMovies.styled';

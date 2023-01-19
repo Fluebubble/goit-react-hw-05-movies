@@ -1,11 +1,8 @@
 import { TrendingMovies } from 'components/TrendingMovies/TrendingMovies';
-import { useEffect, useState } from 'react';
-import * as API from 'api/api';
-import { StyledLink } from '../components/TrendingMovies/TrendingMovies.styled';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 
 const Home = () => {
-  const location = useLocation();
+  // const location = useLocation();
   return <TrendingMovies />;
   // const [trendingMovies, setTrendingMovies] = useState([]);
   // useEffect(() => {
