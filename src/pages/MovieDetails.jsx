@@ -21,7 +21,7 @@ export const MovieDetails = () => {
     <>
       {/* <Box display="flex" alignItems='center'> */}
       <NavLink
-        to={location.state?.from ?? "/"}
+        to={location.state?.from ?? '/'}
         style={{
           display: 'flex',
           alignItems: 'center',
