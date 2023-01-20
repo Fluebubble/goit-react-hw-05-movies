@@ -20,5 +20,4 @@ export const Container = styled.div`
   max-width: 960px;
   margin: 0 auto;
   color: ${p => p.theme.colors.text};
-  /* background-color: ${p => p.theme.colors.background}; */
 `;

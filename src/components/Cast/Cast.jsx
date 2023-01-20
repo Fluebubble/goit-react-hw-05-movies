@@ -5,11 +5,9 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Photo } from './Cast.styled';
 
-export const Cast = () => {
+const Cast = () => {
   const params = useParams();
   const [movieCredits, setMovieCredits] = useState(null);
-  console.log('MovieCredits =', movieCredits);
-  console.log(params);
   useEffect(() => {
     getMovieCreditsById(params.movieId)
       .then(setMovieCredits)
@@ -45,3 +43,5 @@ export const Cast = () => {
     </>
   );
 };
+
+export default Cast;

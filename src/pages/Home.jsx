@@ -1,25 +1,7 @@
-import { TrendingMovies } from 'components/TrendingMovies/TrendingMovies';
-// import { useLocation } from 'react-router-dom';
+import TrendingMovies from 'components/TrendingMovies/TrendingMovies';
 
 const Home = () => {
-  // const location = useLocation();
   return <TrendingMovies />;
-  // const [trendingMovies, setTrendingMovies] = useState([]);
-  // useEffect(() => {
-  //   API.getTrendingMovies().then(setTrendingMovies);
-  // }, []);
-  // return (
-  //   <>
-  //     <h1>Trending today</h1>
-  //     <ul>
-  //       {trendingMovies.map(movie => (
-  //         <li key={movie.id}>
-  //           <StyledLink to={`movies/${movie.id}`}>{movie.title}</StyledLink>
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   </>
-  // );
 };
 
 export default Home;

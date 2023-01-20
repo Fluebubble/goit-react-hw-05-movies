@@ -32,8 +32,18 @@ const getMovieCreditsById = async movieId => {
 const getMovieReviewsById = async movieId => {
   const response = await axios.get(`movie/${movieId}/reviews`, {
     params: { api_key: API_KEY },
-    language: 'en-US',
+
     // page: 1,
+  });
+  return response.data;
+};
+
+const searchMovies = async query => {
+  const response = await axios.get('search/movie', {
+    params: {
+      api_key: API_KEY,
+      query,
+    },
   });
   return response.data;
 };
@@ -43,4 +53,5 @@ export {
   getMovieDetailsById,
   getMovieCreditsById,
   getMovieReviewsById,
+  searchMovies,
 };

@@ -1,15 +1,13 @@
 import * as API from 'api/api';
 import { Box } from 'components/Box/Box';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { NavLink, Outlet, useLocation, useParams } from 'react-router-dom';
 import { NavItem, Poster } from './MovieDetails.styled';
 import { BiLeftArrowAlt } from 'react-icons/bi';
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const params = useParams();
   const [movie, setMovie] = useState(null);
   const location = useLocation();
-  console.log('params = ', params);
-  console.log('movie = ', movie);
   useEffect(() => {
     API.getMovieDetailsById(params.movieId).then(setMovie);
   }, [params.movieId]);
@@ -19,7 +17,6 @@ export const MovieDetails = () => {
   console.log(location);
   return (
     <>
-      {/* <Box display="flex" alignItems='center'> */}
       <NavLink
         to={location.state?.from ?? '/'}
         style={{
@@ -32,7 +29,6 @@ export const MovieDetails = () => {
         <BiLeftArrowAlt size={20} />
         Go back
       </NavLink>
-      {/* </Box> */}
       <Box display="flex" mt={5} gridGap={5}>
         <Poster src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
         <Box>
@@ -53,8 +49,11 @@ export const MovieDetails = () => {
           </ul>
         </Box>
       </Box>
-
-      <Outlet />
+      <Suspense fallback={<h1>LOADING...</h1>}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };
+
+export default MovieDetails;

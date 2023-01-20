@@ -3,7 +3,7 @@ import * as API from 'api/api';
 import { useEffect, useState } from 'react';
 import { StyledLink } from './TrendingMovies.styled';
 
-export const TrendingMovies = () => {
+const TrendingMovies = () => {
   const location = useLocation();
   const [trendingMovies, setTrendingMovies] = useState([]);
   useEffect(() => {
@@ -24,3 +24,5 @@ export const TrendingMovies = () => {
     </>
   );
 };
+
+export default TrendingMovies;

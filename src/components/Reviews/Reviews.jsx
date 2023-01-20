@@ -3,10 +3,9 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-export const Reviews = () => {
+const Reviews = () => {
   const [reviews, setReviews] = useState(null);
   const params = useParams();
-  //   console.log(params);
   useEffect(() => {
     getMovieReviewsById(params.movieId)
       .then(r => setReviews(r.results))
@@ -38,3 +37,5 @@ export const Reviews = () => {
     </>
   );
 };
+
+export default Reviews
