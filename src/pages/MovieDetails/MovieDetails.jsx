@@ -8,13 +8,14 @@ const MovieDetails = () => {
   const params = useParams();
   const [movie, setMovie] = useState(null);
   const location = useLocation();
+  console.log(location.state);
   useEffect(() => {
     API.getMovieDetailsById(params.movieId).then(setMovie);
   }, [params.movieId]);
   if (!movie) {
     return;
   }
-  console.log(location);
+  // console.log(location);
   return (
     <>
       <NavLink
@@ -41,10 +42,17 @@ const MovieDetails = () => {
           <h2>More info:</h2>
           <ul>
             <li>
-              <NavItem to="cast">Cast</NavItem>
+              <NavItem to="cast" state={{ from: location.state?.from ?? '/' }}>
+                Cast
+              </NavItem>
             </li>
             <li>
-              <NavItem to="reviews">Reviews</NavItem>
+              <NavItem
+                to="reviews"
+                state={{ from: location.state?.from ?? '/' }}
+              >
+                Reviews
+              </NavItem>
             </li>
           </ul>
         </Box>

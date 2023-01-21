@@ -13,33 +13,39 @@ const Cast = () => {
       .then(setMovieCredits)
       .catch(console.log);
   }, [params.movieId]);
-  if (!movieCredits) {
-    return;
-  }
+  // if (!movieCredits) {
+  //   return;
+  // }
   return (
     <>
-      <h2>Cast</h2>
-      <Box as="ul" display="flex" flexWrap="wrap">
-        {movieCredits.map(actor => (
-          <Box
-            as="li"
-            key={actor.id}
-            display="flex"
-            flexBasis="calc((100% - 20px) / 2)"
-            mt={4}
-            mb={4}
-          >
-            <Photo
-              src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`}
-              alt={`${actor.character}`}
-            />
-            <Box ml={4} mr={4}>
-              <p>Actor: {actor.name}</p>
-              <p>Character: {actor.character}</p>
-            </Box>
+      {!movieCredits ? (
+        <h2>Unable to load cast</h2>
+      ) : (
+        <>
+          <h2>Cast</h2>
+          <Box as="ul" display="flex" flexWrap="wrap">
+            {movieCredits.map(actor => (
+              <Box
+                as="li"
+                key={actor.id}
+                display="flex"
+                flexBasis="calc((100% - 20px) / 2)"
+                mt={4}
+                mb={4}
+              >
+                <Photo
+                  src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`}
+                  alt={`${actor.character}`}
+                />
+                <Box ml={4} mr={4}>
+                  <p>Actor: {actor.name}</p>
+                  <p>Character: {actor.character}</p>
+                </Box>
+              </Box>
+            ))}
           </Box>
-        ))}
-      </Box>
+        </>
+      )}
     </>
   );
 };
